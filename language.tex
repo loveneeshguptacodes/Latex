@@ -1,0 +1,115 @@
+% Compile this document in Overleaf using XeLaTeX.
+% Menu -> Compiler -> XeLaTeX -> Recompile
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{array}
+\setmainfont{Latin Modern Roman}
+\newfontfamily\devanagarifont[Script=Devanagari]{Noto Serif Devanagari}
+\usepackage{hyperref}
+\title{Typesetting in Indian Languages\\\large Practical 8 and Practical 9}
+\author{LaTeX Practical Study Notes}
+\date{ }
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Basic terminology}
+\begin{description}
+  \item[Language] The language being written, such as Hindi, Sanskrit, Punjabi or Malayalam.
+  \item[Script] The writing system used, such as Devanagari, Gurmukhi or Malayalam script.
+  \item[Font] The typeface used to draw characters. Rachana, for example, is a Malayalam font.
+  \item[Input scheme] The method used to enter characters, such as Unicode, Velthuis or ITRANS.
+\end{description}
+
+\section{Practical 8: Devanagari using Devnag / Velthuis}
+This practical uses a transliteration source file and the legacy \texttt{devnag} preprocessor.
+
+\subsection{Procedure}
+\begin{enumerate}
+  \item Write the transliteration source in a file with the \texttt{.dn} extension.
+  \item Mark Devanagari text using the command \verb|{\dn ...}| and load the Devanagari package in the appropriate LaTeX source.
+  \item Run the Devnag preprocessor to generate a \texttt{.tex} file.
+  \item Compile the generated \texttt{.tex} file using the required LaTeX engine and font resources.
+\end{enumerate}
+
+\subsection{Example}
+The transliteration example is:
+\begin{verbatim}
+{\dn ga.nita}
+\end{verbatim}
+It represents the Devanagari word:
+
+\begin{center}
+  {\devanagarifont गणित}
+\end{center}
+
+\noindent\textbf{Important:} The Devnag workflow requires the legacy Devnag program and its font resources. The command \verb|{\dn ...}| is input for that workflow; it is not a general-purpose command available in every Overleaf project.
+
+\section{Practical 9: Indian-language typesetting using ITRANS}
+ITRANS is a separate transliteration preprocessor. Its directives belong to ITRANS input, not ordinary LaTeX.
+
+\subsection{Example ITRANS input}
+Create a source file such as \texttt{input.itx}:
+\begin{verbatim}
+#indianifm=dvng.ifm
+#indianfont=\fransdvng
+#indian
+... transliterated words ...
+#endindian
+\end{verbatim}
+
+\subsection{Procedure}
+\begin{enumerate}
+  \item Write the transliterated words and ITRANS directives in a \texttt{.itx} file.
+  \item Run the ITRANS preprocessor:
+  \begin{verbatim}
+itrans -i input.itx -o output.tex
+  \end{verbatim}
+  \item Compile the generated file:
+  \begin{verbatim}
+pdflatex output.tex
+  \end{verbatim}
+\end{enumerate}
+
+\section{Devnag and ITRANS: difference}
+\begin{center}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.22\linewidth}|p{0.32\linewidth}|p{0.32\linewidth}|}
+\hline
+ & \textbf{Devnag / Velthuis} & \textbf{ITRANS} \\
+\hline
+Input file & Usually \texttt{.dn} & Usually \texttt{.itx} \\
+\hline
+Preprocessor & Devnag & ITRANS \\
+\hline
+Output & Generated LaTeX source & Generated LaTeX source \\
+\hline
+Key point & Uses Devnag transliteration conventions & Uses ITRANS conventions and directives \\
+\hline
+\end{tabular}
+\end{center}
+The two preprocessors are different. Their transliteration conventions and commands are not interchangeable.
+
+\section{Modern Unicode alternative}
+Modern XeLaTeX or LuaLaTeX can typeset Unicode Indic text when a suitable font is available. This example uses XeLaTeX and the Noto Serif Devanagari font:
+\begin{verbatim}
+\usepackage{fontspec}
+\newfontfamily\devanagarifont[Script=Devanagari]{Noto Serif Devanagari}
+{\devanagarifont गणित}
+\end{verbatim}
+
+\noindent This is a modern Unicode workflow. It is useful for reading and typing Indic text in Overleaf, but it is not a replacement for demonstrating the syllabus's legacy Devnag and ITRANS preprocessing steps if those are specifically required in the practical.
+
+\section{Quick viva revision}
+\begin{enumerate}
+  \item \textbf{What is a script?} A writing system used to represent a language.
+  \item \textbf{What is transliteration?} Representing text from one script using the characters or conventions of another.
+  \item \textbf{What does Devnag do?} It preprocesses Devnag/Velthuis transliteration input into LaTeX source.
+  \item \textbf{What does ITRANS do?} It converts ITRANS transliteration input into output suitable for LaTeX processing.
+  \item \textbf{Can Devnag and ITRANS be used interchangeably?} No. They are separate preprocessors with different conventions.
+  \item \textbf{Which engine supports Unicode Indic text with fontspec?} XeLaTeX or LuaLaTeX.
+\end{enumerate}
+
+\end{document}
