@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LaTeX Practical Library</title>
+<style>
+:root{font-family:Arial,sans-serif;color:#182638;background:#f2f5f9}
+body{margin:0}main{max-width:960px;margin:36px auto;padding:24px}
+h1{margin-bottom:6px}.intro{color:#536276;line-height:1.6}
+.card{background:#fff;border:1px solid #dce3eb;border-radius:14px;padding:22px;margin:18px 0}
+a.btn{display:inline-block;background:#175f89;color:#fff;text-decoration:none;padding:10px 14px;border-radius:8px;margin:8px 8px 0 0}
+a.text{color:#175f89}.tag{font-size:12px;color:#536276;text-transform:uppercase;letter-spacing:.08em}
+li{line-height:1.6}code{background:#eef2f6;padding:2px 5px;border-radius:4px}
+</style></head>
+<body><main>
+<h1>LaTeX Practical Library</h1>
+<p class="intro">Editable source files and supporting resources for the LaTeX practical syllabus.
+Download a source file, adapt it to the question, and compile it using a LaTeX installation.</p>
+
+<section class="card"><div class="tag">Document class 01</div><h2>Article</h2>
+<p>Title, abstract, contents, text formatting, footnotes, lists, tables, images, equations,
+multi-column text, cross-references, hyperlinks, citations, BibTeX and index.</p>
+<a class="btn" href="article.tex" download>Download article.tex</a>
+<a class="text" href="article.tex">View source</a></section>
+
+<section class="card"><div class="tag">Document class 02</div><h2>Letter</h2>
+<p>Sender and recipient addresses, date, opening, closing, signature, subject and page layout.</p>
+<a class="btn" href="letter.tex" download>Download letter.tex</a>
+<a class="text" href="letter.tex">View source</a></section>
+
+<section class="card"><div class="tag">Document class 03</div><h2>Book</h2>
+<p>Front matter, main matter, chapters, sections, contents, lists of figures/tables,
+lists, tables, figures, equations, appendix, back matter and index.</p>
+<a class="btn" href="book.tex" download>Download book.tex</a>
+<a class="text" href="book.tex">View source</a></section>
+
+<section class="card"><h2>Supporting files</h2>
+<ul>
+<li><a class="text" href="references.bib">references.bib</a> — BibTeX source database</li>
+<li><a class="text" href="workflow.png">workflow.png</a> — image used in article and book</li>
+<li><a class="text" href="chapter-extra.tex">chapter-extra.tex</a> — separate chapter for the multi-file example</li>
+<li><a class="text" href="indic-language-examples.txt">Indian-language practical notes</a> — devnag and ITRANS workflows</li>
+<li><a class="text" href="README.txt">README / compilation commands</a></li>
+</ul></section>
+
+<section class="card"><h2>Compile the files</h2>
+<ol><li>Download the source and its supporting files.</li><li>Upload them into one Overleaf project or keep them in one local folder.</li>
+<li>Choose the correct main file and compiler.</li><li>Click Recompile or run the commands in README.txt.</li></ol>
+<p><strong>Important:</strong> Practicals 8 and 9 need the legacy <code>devnag</code> and
+<code>itrans</code> preprocessors plus their font resources. They are not ordinary
+single-file LaTeX builds.</p></section>
+</main></body></html>

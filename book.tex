@@ -1,0 +1,136 @@
+\documentclass[12pt,a4paper,oneside]{book}
+
+% ---------- PREAMBLE ----------
+\usepackage[margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{array,tabularx,multirow}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{makeidx}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+
+\makeindex
+\setlength{\parskip}{5pt}
+
+\title{\Huge Artificial Intelligence\\[6pt]
+       \Large Concepts, Techniques and Applications}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+% ---------- FRONT MATTER ----------
+\frontmatter
+\maketitle
+
+\chapter*{Preface}
+This sample book is designed to demonstrate the LaTeX features in the
+course syllabus. Replace this text with your own preface.
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+% ---------- MAIN MATTER ----------
+\mainmatter
+
+\chapter{Introduction to Artificial Intelligence}
+Artificial Intelligence (AI) is the study of computer systems that
+perform tasks normally associated with human intelligence.
+The term AI is indexed here\index{Artificial Intelligence}.
+
+\section{Basic idea}
+A computer system receives input, processes it, and produces output.
+Figure~\ref{fig:workflow} illustrates this simple idea.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{workflow.png}
+\caption{Input-process-output workflow}\label{fig:workflow}
+\end{figure}
+
+\section{Formatting}
+This is \textbf{bold}, this is \textit{italic}, and this is
+\underline{underlined}. A footnote can explain a term.\footnote{A
+footnote appears at the bottom of the page.}
+
+\chapter{Lists and Tables}
+\section{Types of lists}
+\begin{itemize}
+  \item Supervised learning
+  \item Unsupervised learning
+  \item Reinforcement learning
+\end{itemize}
+
+\begin{enumerate}[label=\Roman*.]
+  \item Data collection
+  \item Model training
+  \item Model evaluation
+\end{enumerate}
+
+\begin{description}
+  \item[Algorithm] A sequence of steps to solve a problem.
+  \item[Dataset] A collection of examples.
+\end{description}
+
+\section{A sample table}
+Table~\ref{tab:areas} summarises example applications.
+\begin{table}[htbp]
+\centering
+\caption{AI application areas}\label{tab:areas}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Area} & \textbf{Example}\\ \hline
+Healthcare & Medical image analysis\\ \hline
+Education & Personalised learning\\ \hline
+Transport & Route planning\\ \hline
+\end{tabular}
+\end{table}
+
+\chapter{Mathematics and Cross-References}
+A displayed equation:
+\begin{equation}\label{eq:neuron}
+z=\sum_{i=1}^{n}w_i x_i+b
+\end{equation}
+Equation~\eqref{eq:neuron} is a weighted sum plus a bias term.
+
+An aligned example:
+\begin{align}
+(a+b)^2 &= (a+b)(a+b)\\
+        &= a^2+2ab+b^2
+\end{align}
+
+See Figure~\ref{fig:workflow} on page~\pageref{fig:workflow}.
+
+\chapter{Large Documents and Child Files}
+A large book can be divided into separate source files. For example,
+\texttt{chapter-extra.tex} can be inserted with
+\verb|\input{chapter-extra}|. The main file retains the preamble and
+document structure.
+
+\appendix
+\chapter{Quick Reference}
+\begin{tabularx}{\linewidth}{|l|X|}
+\hline
+Command & Purpose\\ \hline
+\verb|\chapter{}| & Starts a chapter\\
+\verb|\section{}| & Starts a section\\
+\verb|\label{}| & Defines a reference key\\
+\verb|\ref{}| & Prints the referenced number\\
+\hline
+\end{tabularx}
+
+% ---------- BACK MATTER ----------
+\backmatter
+\chapter*{Bibliography}
+This demonstration uses a manually written back-matter heading.
+For an automatically generated BibTeX bibliography, use:
+\verb|\bibliographystyle{plain}| and
+\verb|\bibliography{references}| before \verb|\printindex|.
+
+\printindex
+\end{document}

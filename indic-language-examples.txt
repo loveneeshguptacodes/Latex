@@ -1,0 +1,35 @@
+INDIAN-LANGUAGE TYPESETTING: PRACTICAL NOTES
+
+Important distinction:
+- Language: Hindi, Sanskrit, Punjabi, Malayalam.
+- Script: Devanagari, Gurmukhi, Malayalam script.
+- Font: the typeface used to draw glyphs; Rachana is a Malayalam font.
+- Input scheme: how characters are entered, e.g. Unicode, Velthuis or ITRANS.
+
+PRACTICAL 8 — DEVANAGARI / VELTHUIS
+1. Write transliteration source in a .dn file.
+2. Mark Devanagari text with {\dn ...} and load the devanagari package.
+3. Run the devnag preprocessor to generate a .tex file.
+4. Compile the generated .tex with LaTeX/pdfLaTeX.
+Example transliteration: {\dn ga.nita} -> गणित.
+This workflow needs the legacy devnag program and its font resources.
+
+PRACTICAL 9 — ITRANS
+- Write source in a .itx file.
+- ITRANS directives select a mapping and font, for example:
+  #indianifm=dvng.ifm
+  #indianfont=\fransdvng
+  #indian
+  ... transliterated words ...
+  #endindian
+- Run: itrans -i input.itx -o output.tex
+- Then compile: pdflatex output.tex
+
+The ITRANS directives belong to the ITRANS preprocessor, not ordinary LaTeX.
+Do not confuse devnag and ITRANS: they are different preprocessors and
+their transliteration conventions are not interchangeable.
+
+Modern Unicode alternative:
+XeLaTeX or LuaLaTeX with fontspec can typeset Unicode Indic text if a
+suitable font is installed. This is a different workflow from the
+syllabus's legacy devnag/ITRANS practicals.

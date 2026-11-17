@@ -1,0 +1,177 @@
+\documentclass[12pt,a4paper]{article}
+
+% ---------- PREAMBLE: packages and page setup ----------
+\usepackage[margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{array,tabularx,multirow}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{makeidx}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+
+\makeindex
+\setlength{\parskip}{5pt}
+\setlength{\parindent}{0pt}
+
+% ---------- TITLE INFORMATION ----------
+\title{\textbf{Introduction to Artificial Intelligence}\\
+       \large A LaTeX Article Demonstrating Syllabus Topics}
+\author{Your Name\\Department of Computer Science}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This sample article demonstrates document structure, formatting, lists,
+tables, figures, mathematical equations, cross-references, citations,
+hyperlinks, an index, and multi-column text.
+\end{abstract}
+
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+
+\section{Introduction}\label{sec:intro}
+Artificial Intelligence (AI) studies systems that perform tasks requiring
+human-like abilities. This article is a practical demonstration of
+LaTeX\index{LaTeX}, not a technical survey of AI.
+
+\textbf{Bold text}, \textit{italic text}, \underline{underlined text},
+\texttt{monospaced text}, and \emph{emphasised text} are examples of
+formatting. A footnote can be added like this.\footnote{This is a sample
+footnote.}
+
+\subsection{Page and paragraph formatting}
+The \texttt{geometry} package controls page margins. The
+\texttt{setspace} package provides line spacing commands:
+\begin{itemize}[label=\textbullet,leftmargin=2em]
+  \item \texttt{\string\singlespacing}
+  \item \texttt{\string\onehalfspacing}
+  \item \texttt{\string\doublespacing}
+\end{itemize}
+\onehalfspacing
+This paragraph uses one-and-a-half line spacing.
+\singlespacing
+
+\section{Lists}\label{sec:lists}
+An unordered list:
+\begin{itemize}
+  \item Machine learning
+  \item Computer vision
+  \item Natural language processing
+\end{itemize}
+
+An ordered list:
+\begin{enumerate}[label=\alph*)]
+  \item Collect data
+  \item Train a model
+  \item Evaluate results
+\end{enumerate}
+
+A description list:
+\begin{description}
+  \item[Dataset] A collection of data.
+  \item[Algorithm] A procedure for solving a problem.
+\end{description}
+
+\section{Tables}\label{sec:tables}
+Table~\ref{tab:methods} demonstrates a caption, label, alignment,
+horizontal rules, and a multirow cell.
+
+\begin{table}[htbp]
+\centering
+\caption{Examples of AI tasks}\label{tab:methods}
+\begin{tabular}{|l|l|c|}
+\hline
+\textbf{Area} & \textbf{Task} & \textbf{Example}\\
+\hline
+Machine learning & Classification & Spam detection\\
+\hline
+\multirow{2}{*}{Computer vision} & Image recognition & Face detection\\
+\cline{2-3}
+& Object detection & Road signs\\
+\hline
+\multicolumn{2}{|c|}{Total areas shown} & 2\\
+\hline
+\end{tabular}
+\end{table}
+
+A flexible-width table uses \texttt{tabularx}:
+\begin{table}[htbp]
+\centering
+\caption{Flexible-width example}
+\begin{tabularx}{0.9\linewidth}{|l|X|}
+\hline
+Topic & Explanation\\ \hline
+AI & A field concerned with intelligent computer systems.\\ \hline
+LaTeX & A document preparation system built on TeX.\\ \hline
+\end{tabularx}
+\end{table}
+
+\section{Including Images}\label{sec:figures}
+Figure~\ref{fig:workflow} demonstrates image insertion. Keep
+\texttt{workflow.png} in the same folder as this source file.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{workflow.png}
+\caption{A simple input-process-output workflow}\label{fig:workflow}
+\end{figure}
+
+\section{Mathematical Expressions}\label{sec:math}
+Inline mathematics looks like \(a^2+b^2=c^2\). Display mathematics:
+\[
+  E = mc^2
+\]
+A numbered equation:
+\begin{equation}\label{eq:linear}
+  y = mx + c
+\end{equation}
+An aligned derivation:
+\begin{align}
+  f(x) &= x^2 + 2x + 1\\
+       &= (x+1)^2
+\end{align}
+A matrix:
+\[
+A=\begin{bmatrix}1&2\\3&4\end{bmatrix}
+\]
+A piecewise expression:
+\[
+f(x)=\begin{cases}
+0,&x<0,\\
+1,&x\geq 0.
+\end{cases}
+\]
+See Equation~\eqref{eq:linear}.
+
+\section{Columns of Text}\label{sec:columns}
+\begin{multicols}{2}
+LaTeX can also typeset prose in newspaper-style columns. This is
+different from columns inside a table. The \texttt{multicol} package
+provides the \texttt{multicols} environment. Text flows from one
+column to the next automatically.
+\end{multicols}
+
+\section{Cross-References and Hyperlinks}\label{sec:refs}
+See Section~\ref{sec:lists}, Table~\ref{tab:methods}, and
+Figure~\ref{fig:workflow}. The page is \pageref{fig:workflow}.
+Visit the \href{https://www.latex-project.org/}{LaTeX Project website}.
+A visible URL can be printed with \url{https://www.overleaf.com/}.
+
+\section{Citations and Bibliography}\label{sec:cites}
+LaTeX is widely used for technical documents \cite{lamport1994}.
+The bibliography database is stored separately in
+\texttt{references.bib}.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\printindex
+\end{document}
